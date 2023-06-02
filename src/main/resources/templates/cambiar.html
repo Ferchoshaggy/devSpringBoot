@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Datos del Nuevo Individuo</title>
+</head>
+<body>
+<h1>Datos del Nuevo Individuo</h1>
+<a th:href="@{/}">Devolver</a>
+<br>
+<form th:action="@{/salvar}" method="post" th:object="${individuo}">
+  <input type="hidden" name="id_individuo" th:field="*{id_individuo}">
+  <br>
+  <labe for="nombre">Nombre: </labe>
+  <input type="text" name="nombre" th:field="*{nombre}">
+  <span th:if="${#fields.hasErrors('nombre')}" th:errores="*{nombre}">Esta vacio nombre</span>
+  <br>
+  <labe for="apellido">Apellido: </labe>
+  <input type="text" name="apellido" th:field="*{apellido}">
+  <span th:if="${#fields.hasErrors('apellido')}" th:errores="*{apellido}">Esta vacio apellido</span>
+  <br>
+  <labe for="edad">Edad: </labe>
+  <input type="number" name="edad" th:field="*{edad}">
+  <span th:if="${#fields.hasErrors('edad')}" th:errores="*{edad}">Esta vacio edad</span>
+  <br>
+  <labe for="correo">Correo: </labe>
+  <input type="text" name="correo" th:field="*{correo}">
+  <span th:if="${#fields.hasErrors('correo')}" th:errores="*{correo}">no esta correcto el correo</span>
+  <br>
+  <labe for="telefono">Telefono: </labe>
+  <input type="tel" name="telefono" th:field="*{telefono}">
+  <span th:if="${#fields.hasErrors('telefono')}" th:errores="*{telefono}">Esta vacio telefono</span>
+  <br>
+  <input type="submit" name="salvar" value="salvar">
+</form>
+</body>
+</html>
